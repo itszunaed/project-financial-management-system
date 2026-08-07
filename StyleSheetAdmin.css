@@ -1,0 +1,551 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap');
+
+/*@font-face {
+    font-family: 'SolaimanLipi';
+    src: url('Fonts/SolaimanLipi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Noto Sans Bengali', 'Noto Sans', sans-serif;
+    width: 100%;
+    
+    overflow-x: auto;
+     min-width:1200px;
+    height: 100vh;
+    background: #eaeaea;
+    color: black;
+    font-size: 14px;
+}
+
+.sidebar {
+    position: absolute;
+    left: -250px;
+    width: 250px;
+    min-height: 100vh;
+    border-right: 1px solid rgba(255,255,255,.1);
+    background: #021e4a;
+    transition: all .5s ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.sidebar-head {
+    color: white;
+    line-height: 69px;
+    padding-left: 20px;
+    background: #053b76 /*#0a445f*/;
+    user-select: none;
+    overflow: hidden;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    max-width: 100%; /* ensures the text doesn't overflow the sidebar */
+   
+}
+
+
+    .user-info i {
+        font-size: 16px;
+        margin-right: 16px;
+    }
+
+
+
+
+.username {
+    font-size: 15px;
+    margin-bottom: -4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 155px; /* Adjust based on your sidebar width */
+    display: inline-block;
+}
+
+
+
+.sidebar-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+    .sidebar-content ul {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        
+    }
+
+        .sidebar-content ul li.logout {
+            margin-top: auto;
+            border-top: 1px solid black;
+        }
+
+.sidebar ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 45px;
+    font-size: 17px;
+    color: white;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    border-top: 1px solid rgba(255,255,255,.1);
+    transition: .4s;
+    cursor: pointer;
+}
+
+ul li:hover a {
+    padding-left: 35px;
+}
+
+.sidebar ul a i {
+    margin-right: 16px;
+}
+
+#check {
+    display: none;
+}
+
+label #btn, label #cancel {
+    position: absolute;
+    background: #021e4a;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+label #btn {
+    left: 11px;
+    top: 10px;
+    font-size: 18px;
+    color: white;
+    padding: 6px 12px;
+    transition: all 0.5s ease;
+}
+
+    label #btn:hover {
+        
+        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        
+    }
+
+    label #cancel {
+        z-index: 1111;
+        left: -195px;
+        top: 18px;
+        font-size: 23px;
+        color: white;
+        padding: 3px 8px;
+        transition: all .5s ease;
+    }
+
+        label #cancel:hover {
+            background: #FF4552;
+            
+        }
+
+
+    #check:checked ~ .sidebar {
+        left: 0;
+    }
+
+#check:checked ~ .popup-overlay {
+    display: block;
+}
+
+#check:checked ~ label #btn {
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#check:checked ~ label #cancel {
+    left: 208px;
+}
+
+/*#check:checked ~section {
+    margin-left: 250px;
+}*/
+
+section {
+    
+    height: 100vh;
+    transition: all .5s;
+}
+
+
+.button {
+    padding: 5px; /* Adjust padding for better size */
+    border: none; /* Remove groove border for a cleaner look */
+    color: white;
+    width:59px;
+    margin:5px 4px 0 0;
+    cursor: pointer;
+    text-align: center; /* Center text */
+    border-radius: 3px; /* More rounded corners for a smoother look */
+    transition: all 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+    
+}
+
+.actionbtn {
+    width: auto;
+    margin: 3px 0 0 0;
+}
+.button:hover {
+    transform: translateY(-2px); /* Slight lifting effect on hover */
+    
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow on hover */
+}
+
+    .button:focus {
+        outline: none; /* Removes the default focus outline */
+       
+    }
+
+
+.deletebtn {
+    background-color: #FF4552;
+}
+
+
+.editbtn {
+    background-color: #203165;
+}
+
+
+
+
+.selectproject-center {
+    margin: 0 auto 15px auto; /* horizontally center */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0px;
+    background: #021e4a;
+    color: white;
+    width: 33%;
+    padding: 10px 10px;
+    box-shadow: -2px 6px 4px rgba(0, 0, 0, 0.4);
+    white-space:nowrap;
+}
+
+
+.card {
+    padding: 7px;
+    text-align: center;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    border-radius: 0px;
+    margin: 0 auto 7px auto;
+    background: #021e4a;
+    color: white;
+    
+    box-shadow: -2px 6px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+
+.last {
+    text-align: center;
+    background: #021e4a;
+    color: white;
+    padding:5px;
+    bottom:0;
+}
+
+.table-style {
+    align-self: flex-start; /* Key to prevent unwanted stretching */
+    table-layout: auto; /* Natural sizing */
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .table-style th {
+        position: sticky;
+        top: -1px;
+        background-color: #021e4a;
+        color: white;
+        font-weight: normal;
+        text-align: center;
+        border: 1px solid black;
+        padding: 7px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        z-index: 15;  /*Keeps header above rows */
+    }
+
+    .table-style td {
+        color: black;
+        padding: 7px;
+        border: 1px solid black;
+        text-align: center;
+        white-space: normal; /*  Allow multi-line text */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        z-index: 3;
+    }
+
+
+
+
+    .table-style tbody tr:nth-child(odd) {
+        background-color: #a8a8a8;
+    }
+
+    .table-style tbody tr:nth-child(even) {
+        background-color: #d1d1d1;
+    }
+
+    .table-style tbody tr.soft-red-row {
+        background-color: #fbcaca !important;
+    }
+
+        
+
+    .table-style tbody tr.soft-green-row {
+        background-color: #d6ffdb !important;
+        
+    }
+
+
+    .table-style tbody tr.soft-yellow-row {
+        background-color: #fdd798 !important;
+    }
+
+
+    .table-style tr {
+        border-bottom: 1px solid black;
+    }
+
+/* Scrollable container for GridView */
+.gridview-container {
+    width: 100%;
+    height: 100%;
+    margin-bottom:4px;
+    position: relative; /* Helps establish a stacking context */
+    /*overflow-x: auto;*/
+    overflow-y: auto;
+    /* Smooth nice scrollbar */
+   
+}
+
+
+
+    /* For Chrome, Edge, and Safari 
+    .gridview-container::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+    }
+
+    .gridview-container::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 10px;
+    }
+
+        .gridview-container::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+    .gridview-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }*/
+
+.custom-dropdown {
+    width: 100%; /* takes full width of parent div */
+    padding: 3px; /* optional: some padding for nicer look */
+    box-sizing: border-box; /* include padding inside width */
+}
+
+.custom-textbox {
+    width: 100%; /* takes full width of parent div */
+    padding: 3px; /* optional: some padding for nicer look */
+    box-sizing: border-box; /* include padding inside width */
+    resize: none;
+}
+
+.ddmaxwidth250 {
+    max-width: 250px;
+}
+
+.ddmaxwidth200 {
+    max-width: 200px;
+}
+
+.ddmaxwidth150 {
+    max-width: 150px;
+}
+
+
+
+.custom-dropdown:hover {
+    cursor: pointer;
+}
+
+.popup {
+    display: none; /* HIDDEN BY DEFAULT */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%; /* Responsive width */
+    max-width: 400px;  /*Max width for larger screens */
+    height: auto; /* Allow it to adjust */
+    /* max-height: 80vh;  Avoid excessive height */
+    background: #043469 /*linear-gradient(135deg,#0a435e, #08587e)*/;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    color: white;
+    padding: 20px;
+    z-index: 1300;
+    overflow-y: auto; /* Enable scrolling for smaller screens */
+}
+
+.popuppassword {
+    position:relative;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%; /* Responsive width */
+    max-width: 400px;  /*Max width for larger screens */
+    height: auto; /* Allow it to adjust */
+    /* max-height: 80vh;  Avoid excessive height */
+    background: #043469 /*linear-gradient(135deg,#0a435e, #08587e)*/;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    color: white;
+    padding: 20px;
+    z-index: 700;
+    overflow-y: auto; /* Enable scrolling for smaller screens */
+}
+
+
+
+.responsive-table {
+    width: 100%;
+    text-align: center;
+}
+
+
+.watermark {
+    position:fixed ;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    font-weight: bold;
+    color: rgba(5, 59, 118, 0.05);
+    z-index: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Make the row a flex container on small screens 
+@media screen and (max-width: 768px) {
+    .responsive-table tr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .responsive-table td {
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+    }
+}*/
+
+
+/* For very small screens (less than 480px wide) 
+@media (max-width: 480px) {
+    .popup {
+        width: 95%;
+        max-height: 75vh;
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .popuppassword {
+        width: 95%;
+        max-height: 75vh;
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .selectproject-center{
+        width:50%;
+    }
+}*/
+
+/* For medium-sized screens (between 481px and 768px wide) 
+@media (max-width: 768px) {
+    .popup {
+        width: 85%;
+        max-height: 80vh;
+        padding: 18px;
+    }
+
+    .popuppassword {
+        width: 85%;
+        max-height: 80vh;
+        padding: 18px;
+    }
+}*/
+
+/* For larger screens (greater than 768px wide) 
+@media (min-width: 769px) {
+    .popup {
+        max-width: 400px;
+        max-height: 80vh;
+    }
+
+    .popuppassword {
+        max-width: 450px;
+        max-height: 80vh;
+    }
+}*/
+
+
+
+.popup-overlay {
+    display: none; /* HIDDEN BY DEFAULT */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 900;
+}
+
+
+
+/* Apply only to the amount input 
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.no-spinner {
+    -moz-appearance: textfield;
+}*/

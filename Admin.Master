@@ -1,0 +1,141 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="TalukderEngineering.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=1024"/>
+    <title>Talukder Engineering</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png"/>
+    <link rel="shortcut icon" href="favicon/favicon.ico"/>
+
+     <link rel="stylesheet" href="StyleSheetAdmin.css">
+    <link rel="stylesheet" href="css/all.min.css"/>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onbeforeunload="saveGridScrollPosition();">
+    <form id="form1" runat="server">
+
+        <asp:ScriptManager runat="server" />
+        <input type="checkbox" id="check">
+        <div class="popup-overlay"></div>
+
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+            
+
+<div class="sidebar">
+
+    <div class="sidebar-head">
+    <label class="user-info">
+        
+        <i class="fas fa-user"></i>
+       <asp:Label ID="lblUserName" runat="server" CssClass="username"></asp:Label>
+
+    </label>
+
+</div>
+        
+
+
+
+    <div class="sidebar-content">
+        <ul>
+                       
+            <li onclick="navigateTo('DisbursementEntryAdmin.aspx')">
+            <a><i class="fas fa-hand-holding-usd"></i>ভাউচার এন্ট্রি</a>
+            </li>
+
+                        <li onclick="navigateTo('ReturnedMoneyApproval.aspx')">
+     <a><i class="fas fa-undo"></i>ফেরত টাকা এপ্রোভাল</a>
+</li>
+
+             <!-- Running Projects -->
+            <li onclick="navigateTo('ProjectDetails.aspx?status=Running')">
+                <a><i class="fas fa-file-alt"></i>চলমান প্রোজেক্ট রিপোর্ট</a>
+            </li>
+
+            <!-- Archived Projects -->
+            <li onclick="navigateTo('ProjectDetails.aspx?status=Completed')">
+                <a><i class="fas fa-archive"></i>সমাপ্ত প্রোজেক্ট রিপোর্ট</a>
+            </li>
+
+            
+
+            <li onclick="navigateTo('EmployeeReport.aspx')">
+                 <a><i class="fas fa-users-viewfinder"></i>এমপ্লয়ী রিপোর্ট</a>
+            </li>
+
+            <li onclick="navigateTo('AccountReport.aspx')">
+             <a><i class="fas fa-money-check-alt"></i>এ্যাকাউন্ট রিপোর্ট</a>
+             </li>
+
+            <li onclick="navigateTo('AccountList.aspx')">
+             <a><i class="fas fa-landmark"></i>এ্যাকাউন্ট লিস্ট</a>
+            </li>
+
+                 <li onclick="navigateTo('PendingBillList.aspx')">
+                 <a><i class="fas fa-hourglass-half"></i>পেন্ডিং বিলের লিস্ট</a>
+                </li>
+
+
+            <li onclick="navigateTo('ProjectList.aspx')">
+                <a><i class="fas fa-tasks"></i>প্রোজেক্ট লিস্ট</a>
+            </li>
+            <li  onclick="navigateTo('ExpenseCategory.aspx')">
+                <a><i class="fas fa-coins"></i>খরচের খাতসমূহ</a>
+            </li>
+            <li onclick="navigateTo('EmployeeDetails.aspx')">
+                <a><i class="fas fa-users"></i>এমপ্লয়ী তথ্য</a>
+            </li>
+
+           <!-- <li onclick="navigateTo('UserList.aspx')">
+                <a><i class="fas fa-address-book"></i>ইউজার লিস্ট</a>
+            </li>-->
+             <li onclick="navigateTo('PasswordChange.aspx')">
+                <a><i class="fas fa-key"></i>পাসওয়ার্ড পরিবর্তন</a>
+            </li>
+            <li class="logout" onclick="navigateTo('Logout.aspx')">
+                <a><i class="fas fa-sign-out-alt"></i>লগ আউট</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+   <section style="height: 100vh; display: flex; flex-direction: column; overflow: hidden;">
+
+    <div style="padding: 10px; flex: 1; display: flex; flex-direction: column; overflow: hidden;">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+   </div>
+
+</section>
+
+    </form>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

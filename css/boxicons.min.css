@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'boxicons';
+    src: url('../fonts/boxicons.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.bx {
+    font-family: 'boxicons' !important;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    speak: none;
+    text-transform: none;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+.bx-mobile::before {
+    content: "\eb8f";
+}
+
+.bx-lock-alt::before {
+    content: "\eb4a";
+}

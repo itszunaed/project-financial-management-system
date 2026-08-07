@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Employee.master.cs" Inherits="TalukderEngineering.Employee" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Talukder Engineering</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png"/>
+    <link rel="shortcut icon" href="favicon/favicon.ico"/>
+
+    <link rel="stylesheet" href="StyleSheetEmployee.css">
+    <link rel="stylesheet" href="css/all.min.css"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+         <div class="page-wrapper">
+         <nav>
+        <div class="logo">
+             <i class="fas fa-user"></i>&nbsp
+       <asp:Label ID="lblUserName" runat="server" CssClass="username"></asp:Label>
+        </div>
+
+             
+        <ul id="menuList">
+            <li onclick="navigateTo('EmployeeHome.aspx')" ><a>খরচ এন্ট্রি</a></li>
+             <li onclick="navigateTo('EmployeeMoneyReturn.aspx')"><a>টাকা ফেরত</a></li>
+            <li onclick="navigateTo('EmployeeEntries.aspx')"><a>আমার রেকর্ড</a></li>
+            <!--<li onclick="navigateTo('ProjectReportEmp.aspx')"><a>প্রোজেক্ট রিপোর্ট</a></li>-->
+            <li onclick="navigateTo('EmployeePasswordChange.aspx')"><a>পাসওয়ার্ড পরিবর্তন</a></li>
+            <li onclick="navigateTo('Logout.aspx')"><a>লগ আউট</a></li>
+            
+        </ul>
+                 
+        <div class="menu-icon">
+            <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+        </div>
+    </nav>
+
+        
+              <div id="popupOverlay" class="popup-overlay"></div>
+
+     <div class="main-content">
+         
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+             
+       
+           </div>
+
+                                      <footer class="footer-text">
+    &copy; 2026 Talukder Engineering. All rights reserved. Developed by Swopnil.
+</footer> 
+
+    </div>                        
+            
+    </form>
+
+ 
+
+
+
+    <script>
+        let menuList = document.getElementById("menuList")
+        menuList.style.maxHeight = "0px";
+
+        function toggleMenu(){
+            if(menuList.style.maxHeight == "0px")
+            {
+                menuList.style.maxHeight = "300px";
+                
+                document.getElementById('popupOverlay').style.display = 'block';
+            }
+            else{
+                menuList.style.maxHeight = "0px";
+                
+                    document.getElementById('popupOverlay').style.display = 'none';
+                
+            }
+        }
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+
+
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+
+    </script>
+    
+
+</body>
+</html>
