@@ -141,4 +141,4 @@ This is a portfolio presentation of a real-world business application. Productio
 
 **Md. Zunaed Rahman**
 
-GitHub: [itszunaed](https://github.com/itszunaed)
+GitHub: [itiszunaed](https://github.com/itiszunaed)
